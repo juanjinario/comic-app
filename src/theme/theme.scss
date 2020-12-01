@@ -1,0 +1,15 @@
+// Prebuilt theme in Angular Json "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+
+@import '~@angular/material/theming';
+@include mat-core();
+$bnd-primary: ( 50: #fce1e2,100: #f8b5b6,200: #f48485,300: #f05354,400: #ec2e30,500: #e9090b,600: #e6080a,700: #e30608,800: #df0506,900: #d90203,A100: #ffffff,A200: #ffcece,A400: #ff9b9b,A700: #ff8181, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: white, 900: white, A100: $black-87-opacity, A200: $black-87-opacity, A400: $black-87-opacity, A700: $black-87-opacity, ));
+$bnd-accent: (  50: #fef9e0, 100: #fcefb3, 200: #fae580, 300: #f8db4d, 400: #f7d326, 500: #f5cb00, 600: #f4c600, 700: #f2be00, 800: #f0b800, 900: #eeac00, A100: #ffffff, A200: #fff6e1, A400: #ffe6ae, A700: #ffde95, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: $black-87-opacity, 600: $black-87-opacity, 700: $black-87-opacity, 800: $black-87-opacity, 900: $black-87-opacity ));
+// mandatory stuff for theming
+$app-palette-primary: mat-palette($bnd-primary);
+$app-palette-accent: mat-palette($bnd-accent);
+// include the custom theme components into a theme object
+$app-theme: mat-dark-theme($app-palette-primary, $app-palette-accent);
+// include the custom theme object into the angular material theme
+@include angular-material-theme($app-theme);
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);
