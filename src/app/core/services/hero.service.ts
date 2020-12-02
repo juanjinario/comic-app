@@ -26,27 +26,13 @@ export class HeroService {
 
   getComics(): Observable<IComic[]> {
     return this.http
-      .get(
-        this.generateFullUrl(`${this.baseUrl}/characters/${this.heroId}/comics`)
-      )
-      .pipe(
-        map((data: any) => data.data.results),
-      );
+      .get(`${this.baseUrl}/characters/${this.heroId}/comics`)
+      .pipe(map((data: any) => data.data.results));
   }
 
   getComicById({ comicId }): Observable<IComic> {
     return this.http
-      .get(
-        this.generateFullUrl(`${this.baseUrl}/comics/${comicId}`)
-      )
-      .pipe(
-        map((data: any) => data.data.results[0])
-      );
-  }
-
-  generateFullUrl(petition: string): string {
-    return `${petition}?ts=${this.ts}&apikey=${this.publicKey}&hash=${
-      this.md5
-    }`;
+      .get(`${this.baseUrl}/comics/${comicId}`)
+      .pipe(map((data: any) => data.data.results[0]));
   }
 }
