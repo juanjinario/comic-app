@@ -4,11 +4,13 @@ import { Observable, Subject } from 'rxjs';
 import { pluck, takeUntil } from 'rxjs/operators';
 import { IComic } from 'src/app/core/models/index';
 import { HeroService } from 'src/app/core/services/index';
+import { fadeInOut } from '../../../shared/animation';
 
 @Component({
   selector: 'app-comic-detail',
   templateUrl: './comic-detail.component.html',
   styleUrls: ['./comic-detail.component.scss'],
+  animations: [fadeInOut],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ComicDetailComponent implements OnDestroy {

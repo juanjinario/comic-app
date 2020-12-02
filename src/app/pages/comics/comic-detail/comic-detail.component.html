@@ -1,4 +1,4 @@
-<div class="content" *ngIf="$comicData | async as comicInfo; else loadingTemplate" fxLayout="row wrap" fxLayoutGap="4%" fxLayoutAlign=" start" >
+<div class="content" *ngIf="$comicData | async as comicInfo; else loadingTemplate" fxLayout="row wrap" fxLayoutGap="4%" fxLayoutAlign=" start" [@fadeInOut]>
   <img class="main-img mat-elevation-z4" [src]="comicInfo.thumbnail | imgFullPath" fxFlex="33%" fxFlex.lt-sm="100">
   <section class="text" fxFlex="63%" fxFlex.lt-sm="100">
     <h1>{{ comicInfo.title }}</h1>
