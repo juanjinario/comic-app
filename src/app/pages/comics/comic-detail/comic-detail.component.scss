@@ -1,0 +1,25 @@
+.content {
+  .main-img {
+    max-width: 350px;
+    width: 100%;
+  }
+  .text {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin-top: 25px;
+    @media (min-width: 601px) {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 1em;
+    }
+    .row-text {
+      b+span {
+        margin-left: 5px;
+      }
+    }
+    p+p {
+      margin-top: 1.2em;
+    }
+  }
+}
