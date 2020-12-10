@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { IComic } from 'src/app/core/models/index';
 import { HeroService } from 'src/app/core/services/index';
 import { slideUpChilds } from '../../../shared/animation';
@@ -24,7 +25,13 @@ export class ComicListComponent implements OnInit {
   }
 
   getComics(): void {
-    this.$comicsList = this.heroService.getComics();
+    // Prueba de modificar la data que devuelve un observable
+    this.$comicsList = this.heroService.getComics().pipe(
+      tap(data => data = data.map(item => {
+        item.title = item.title.toLocaleLowerCase();
+        return item
+      }))
+    );
   }
 
   onDetailClick({ comicId }): void {
